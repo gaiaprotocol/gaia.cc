@@ -1,1 +1,29 @@
 @import "../../../gaiaprotocol-style/index.less";
+
+.layout {
+  display       : flex;
+  flex-direction: column;
+  gap           : 16px;
+  padding       : 16px 24px;
+
+  >header {
+    >h1 {
+      font-size: 72px;
+    }
+  }
+
+  >main {
+    >.home {}
+  }
+
+  >footer {
+    display       : flex;
+    flex-direction: column;
+    gap           : 16px;
+
+    >.copyright {
+      color    : #b4b4b4;
+      font-size: 14px;
+    }
+  }
+}
