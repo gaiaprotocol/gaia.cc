@@ -7,7 +7,7 @@ export function header() {
 export function footer() {
   return el(
     "footer",
-    el(".copyright", `Gaia Protocol © 2022-${new Date().getFullYear()}`),
+    el(".credit", "Created by Gaia Protocol"),
     el(
       ".social",
       el(
