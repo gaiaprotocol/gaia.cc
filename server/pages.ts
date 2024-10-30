@@ -10,6 +10,7 @@ export function pages(path: string, isDevMode = false): string | undefined {
       {
         title: "gaia.cc",
         cssFiles: [isDevMode ? "bundle-dev.css" : "/bundle.css"],
+        gtagId: "G-5V6VEQVW28",
       },
       layout(home()),
     );
