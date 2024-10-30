@@ -109,13 +109,13 @@ meter {
 }
 @font-face {
   font-family: Söhne;
-  src: url("./fonts/soehne.woff2") format("woff2");
+  src: url("https://common-resources.gaia.cc/fonts/soehne.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: Söhne;
-  src: url("./fonts/soehne-bold.woff2") format("woff2");
+  src: url("https://common-resources.gaia.cc/fonts/soehne-bold.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
@@ -384,6 +384,7 @@ button.circle.disabled {
   gap: 34px;
 }
 .input {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 9px;
@@ -417,6 +418,18 @@ button.circle.disabled {
   height: 100px;
   padding: 13.5px;
   resize: vertical;
+}
+.input:has(.suffix-icon) > input,
+.input:has(.suffix-icon) > textarea {
+  padding-right: 40px;
+}
+.input > .suffix-icon {
+  position: absolute;
+  right: 13.5px;
+  bottom: 13.5px;
+}
+.input > .suffix-icon > .icon {
+  display: flex;
 }
 .select {
   display: flex;
@@ -641,19 +654,23 @@ li.chat-message-list-item > main {
 .chat-message-edit-form > form > .actions > button > .icon-container > .icon {
   font-size: 20px;
 }
-.logged-in-user-avatar-button > button.circle {
-  min-height: auto;
+.logged-in-user-avatar-button > button.avatar {
   padding: 0;
-  border: none;
-  background-color: transparent;
   transition: none;
+  gap: 12px;
+}
+.logged-in-user-avatar-button > button.avatar > .icon-container {
+  border-radius: 50%;
+}
+.logged-in-user-avatar-button > button.avatar > .name {
+  padding-right: 16px;
 }
 @media (pointer: fine) {
-  .logged-in-user-avatar-button > button.circle:hover {
+  .logged-in-user-avatar-button > button.avatar:hover > .icon-container {
     background-color: var(--circle-button-bg-color);
   }
 }
-.logged-in-user-avatar-button > button.circle:active {
+.logged-in-user-avatar-button > button.avatar:active > .icon-container {
   background-color: var(--circle-button-bg-color);
 }
 .logged-in-user-avatar-menu > header {
