@@ -5,6 +5,7 @@ export default function index() {
     {
       title: "gaia.cc",
       cssFiles: ["/bundle.css"],
+      jsFiles: ["/bundle.js"],
       gtagId: "G-5V6VEQVW28",
     },
     el(
