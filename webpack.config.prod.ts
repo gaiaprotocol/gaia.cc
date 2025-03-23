@@ -19,10 +19,16 @@ const config: webpack.Configuration = {
     ],
   },
   entry: {
-    __less: "./style/main.less",
+    "bundle": "./app/prod.ts",
+    __less: "./public/style/main.less",
   },
   module: {
     rules: [
+      {
+        test: /\.ts/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
       {
         test: /\.less$/,
         use: [MiniCssExtractPlugin.loader, {
@@ -32,16 +38,29 @@ const config: webpack.Configuration = {
           },
         }, "less-loader"],
       },
+      {
+        test: /\.ya?ml$/,
+        use: "yaml-loader",
+      },
     ],
   },
   resolve: {
-    extensions: [".less"],
+    extensions: [".ts", ".js", ".less"],
+    extensionAlias: {
+      ".js": [".js", ".ts"],
+    },
+    fallback: {
+      buffer: require.resolve("buffer"),
+    },
   },
   output: {
     filename: "[name].js",
     path: path.resolve("public"),
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      Buffer: ["buffer", "Buffer"],
+    }),
     new MiniCssExtractPlugin({
       filename: "bundle.css",
     }),
